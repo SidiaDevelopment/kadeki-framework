@@ -1,0 +1,11 @@
+{
+  "name": "kadeki-framework",
+  "version": "1.0.0",
+  "description": "Kadeki Discord framework",
+  "main": "index.js",
+  "repository": "git@github.com:SidiaDevelopment/kadeki-framework.git",
+  "author": "Marvin Fischer <admin@sidia.net>",
+  "license": "MIT",
+  "private": true,
+  "packageManager": "yarn@3.2.4"
+}
