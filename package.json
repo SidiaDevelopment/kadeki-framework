@@ -1,11 +1,25 @@
 {
-  "name": "kadeki-framework",
+  "name": "@kadeki/kadeki-framework",
   "version": "1.0.0",
-  "description": "Kadeki Discord framework",
-  "main": "index.js",
+  "description": "The Kadeki Discord Framework",
   "repository": "git@github.com:SidiaDevelopment/kadeki-framework.git",
   "author": "Marvin Fischer <admin@sidia.net>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "lint": "eslint . --max-warnings=0"
+  },
+  "dependencies": {
+    "typescript": "^4.8.4"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint": "latest"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "packageManager": "yarn@3.2.4"
 }

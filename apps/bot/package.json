@@ -1,0 +1,19 @@
+{
+  "name": "@kadeki/bot",
+  "version": "1.0.0",
+  "description": "The Kadeki Discord Framework Bot",
+  "scripts": {
+    "dev": "nodemon --watch \"./src/**/*.ts\" --exec ts-node src/index.ts",
+    "start": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "@kadeki/core": "workspace:^",
+    "typescript": "^4.8.4"
+  },
+  "packageManager": "yarn@3.2.4"
+}
