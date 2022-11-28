@@ -1,0 +1,19 @@
+{
+  "name": "@kadeki/config",
+  "description": "The Kadeki Discord Framework Config",
+  "version": "1.0.0",
+  "main": "./dist/lib/index.js",
+  "typings": "./dist/types/index.d.ts",
+  "files": [
+    "./dist/*/**"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "packageManager": "yarn@3.3.0",
+  "dependencies": {
+    "@kadeki/core": "workspace:^",
+    "typescript": "^4.8.4"
+  }
+}

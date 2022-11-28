@@ -12,8 +12,12 @@
     "ts-node": "^10.9.1"
   },
   "dependencies": {
+    "@kadeki/commands": "workspace:^",
+    "@kadeki/config": "workspace:^",
     "@kadeki/core": "workspace:^",
+    "@kadeki/discord": "workspace:^",
+    "@kadeki/logger": "workspace:^",
     "typescript": "^4.8.4"
   },
-  "packageManager": "yarn@3.2.4"
+  "packageManager": "yarn@3.3.0"
 }

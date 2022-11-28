@@ -1,17 +1,13 @@
 export class EventListener<T> {
-    protected listeners: ((data: T) => void)[] = [];
+    protected listeners: ((data: T) => Promise<void>)[] = [];
 
-    public emit(data: T): void {
+    public async emit(data: T): Promise<void> {
         for (let listener of this.listeners) {
-            listener(data);
+            await listener(data);
         }
     }
 
-    public addListener(listener: (data: T) => void): void {
+    public addListener(listener: (data: T) => Promise<void>): void {
         this.listeners.push(listener);
-    }
-
-    public removeListener(listener: (data: T) => void): void {
-        this.listeners = this.listeners.filter(e => e != listener);
     }
 }

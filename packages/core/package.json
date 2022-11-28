@@ -11,10 +11,11 @@
     "build": "tsc",
     "dev": "tsc -w"
   },
-  "packageManager": "yarn@3.2.4",
+  "packageManager": "yarn@3.3.0",
   "dependencies": {
     "deepmerge": "^4.2.2",
     "discord.js": "^14.6.0",
+    "reflect-metadata": "^0.1.13",
     "typescript": "^4.8.4"
   }
 }

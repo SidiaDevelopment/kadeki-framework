@@ -1,0 +1,14 @@
+import {IConfigContext} from "@kadeki/core/context";
+import {PartialRecursive} from "@kadeki/core";
+
+export const config: PartialRecursive<IConfigContext> = {
+    ping: {
+        greeting: "Configuration test!"
+    },
+    discord: {
+        key: "",
+    },
+    commands: {
+        updateOnStart: true,
+    }
+}

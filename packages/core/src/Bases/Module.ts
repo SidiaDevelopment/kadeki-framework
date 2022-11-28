@@ -20,7 +20,7 @@ export abstract class Module extends Providable<IModuleConfig> {
     public abstract data: IModuleData;
 
     public async init(): Promise<void> {
-        Module.onInit.emit({module: this});
+        await Module.onInit.emit({module: this});
     }
 }
 

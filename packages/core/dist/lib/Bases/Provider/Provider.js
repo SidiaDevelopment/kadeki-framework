@@ -10,6 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Provider = void 0;
+const useContext_1 = require("../../Hooks/useContext");
+const LoggingContext_1 = require("../../Contexts/LoggingContext");
 class Provider {
     constructor() {
         this.providables = {};
@@ -18,7 +20,7 @@ class Provider {
         let constructors = Array.isArray(providables) ? providables : [providables];
         for (let ctr of constructors) {
             const providable = new ctr();
-            const identifier = this.getIdentifier(providable);
+            const identifier = this.getIdentifier(ctr);
             this.providables[identifier] = providable;
         }
     }
@@ -30,8 +32,22 @@ class Provider {
             }
         });
     }
+    get(providable) {
+        const name = typeof providable == "string" ? providable : this.getIdentifier(providable);
+        if (!Object.prototype.hasOwnProperty.call(this.providables, name)) {
+            const { logger } = (0, useContext_1.useContext)(LoggingContext_1.LoggingContext);
+            logger.error(`Tried getting unloaded providable: ${name}`);
+        }
+        return this.providables[name];
+    }
+    getByPredicate(predicate) {
+        return Object.values(this.providables).find(predicate);
+    }
+    all() {
+        return this.providables;
+    }
     getIdentifier(providable) {
-        return providable.constructor.name;
+        return providable.name;
     }
     initOrderBy(a, b) {
         return a.config.priority - b.config.priority;

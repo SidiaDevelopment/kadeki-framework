@@ -1,7 +1,8 @@
 import {Ctor} from "../../Utils/Ctor"
+import {RecursiveRequired} from "../../Utils/RequiredRecursive";
 
 export abstract class Providable<ConfigT extends IProvidableConfig> {
-    public config!: ConfigT;
+    public config!: RecursiveRequired<ConfigT>;
     public abstract init(): Promise<void>;
 
     public get isLoaded() {
@@ -16,11 +17,11 @@ export enum InitPriority {
 }
 
 export interface IProvidableConfig {
-    priority: InitPriority;
+    priority?: InitPriority;
 }
 
-export const providableDecorator = <ConfigT extends IProvidableConfig>(defaultConfig: ConfigT) => {
-    return (config: Partial<ConfigT>) => {
+export const providableDecorator = <ConfigT extends IProvidableConfig>(defaultConfig: RecursiveRequired<ConfigT>) => {
+    return (config: ConfigT) => {
         return (constructor: Ctor<Providable<ConfigT>>) => {
             constructor.prototype.config = {...defaultConfig, ...config};
         }

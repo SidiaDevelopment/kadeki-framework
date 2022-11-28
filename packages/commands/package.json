@@ -1,0 +1,22 @@
+{
+  "name": "@kadeki/commands",
+  "description": "The Kadeki Discord Framework commands module",
+  "version": "1.0.0",
+  "main": "./dist/lib/index.js",
+  "typings": "./dist/types/index.d.ts",
+  "files": [
+    "./dist/*/**"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "packageManager": "yarn@3.3.0",
+  "dependencies": {
+    "@kadeki/config": "workspace:^",
+    "@kadeki/core": "workspace:^",
+    "@kadeki/discord": "workspace:^",
+    "discord.js": "^14.6.0",
+    "typescript": "^4.8.4"
+  }
+}

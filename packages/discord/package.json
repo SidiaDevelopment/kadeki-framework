@@ -1,0 +1,21 @@
+{
+  "name": "@kadeki/discord",
+  "description": "The Kadeki Discord Framework Discord Module",
+  "version": "1.0.0",
+  "main": "./dist/lib/index.js",
+  "typings": "./dist/types/index.d.ts",
+  "files": [
+    "./dist/*/**"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "packageManager": "yarn@3.3.0",
+  "dependencies": {
+    "@kadeki/config": "workspace:^",
+    "@kadeki/core": "workspace:^",
+    "discord-api-types": "^0.37.20",
+    "discord.js": "^14.6.0"
+  }
+}

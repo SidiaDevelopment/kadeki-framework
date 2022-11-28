@@ -17,4 +17,4 @@ export declare abstract class Module extends Providable<IModuleConfig> {
     abstract data: IModuleData;
     init(): Promise<void>;
 }
-export declare const module: (config: Partial<IModuleConfig>) => (constructor: import("../Utils/Ctor").Ctor<Providable<IModuleConfig>>) => void;
+export declare const module: (config: IModuleConfig) => (constructor: import("../Utils/Ctor").Ctor<Providable<IModuleConfig>>) => void;

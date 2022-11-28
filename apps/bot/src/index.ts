@@ -1,10 +1,15 @@
-import {Core} from "@kadeki/core";
+import {Core, LogLevel} from "@kadeki/core";
 import {modules} from "./modules";
 import {config} from "./config";
+import {KadekiLogger} from "@kadeki/logger";
 
-const core = Core.create({
+Core.create({
     modules: modules,
-    config: config
+    config: config,
+    logger: {
+        logStrategy: KadekiLogger,
+        logLevel: LogLevel.None
+    },
+}).then(async (core) => {
+    await core.start();
 });
-
-core.start();

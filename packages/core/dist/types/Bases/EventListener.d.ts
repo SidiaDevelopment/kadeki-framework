@@ -1,6 +1,5 @@
 export declare class EventListener<T> {
-    protected listeners: ((data: T) => void)[];
-    emit(data: T): void;
-    addListener(listener: (data: T) => void): void;
-    removeListener(listener: (data: T) => void): void;
+    protected listeners: ((data: T) => Promise<void>)[];
+    emit(data: T): Promise<void>;
+    addListener(listener: (data: T) => Promise<void>): void;
 }

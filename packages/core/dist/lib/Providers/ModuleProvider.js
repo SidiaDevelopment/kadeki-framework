@@ -6,9 +6,9 @@ const addContextData_1 = require("../Hooks/addContextData");
 const ProviderContext_1 = require("../Contexts/ProviderContext");
 class ModuleProvider extends Provider_1.Provider {
     getIdentifier(providable) {
-        if (providable.config == null)
+        if (providable.prototype.config == null)
             throw new Error(`Trying to load unconfigured module: ${super.getIdentifier(providable)}, try adding the @module decorator`);
-        return providable.config.tag;
+        return super.getIdentifier(providable);
     }
 }
 exports.ModuleProvider = ModuleProvider;

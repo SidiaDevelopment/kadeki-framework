@@ -18,22 +18,22 @@ const useContext_1 = require("../Hooks/useContext");
 const Core_1 = require("../Core");
 class ServiceProvider extends Provider_1.Provider {
     getIdentifier(providable) {
-        if (providable.config == null)
+        if (providable.prototype.config == null)
             throw new Error(`Trying to load unconfigured service: ${super.getIdentifier(providable)}, try adding the @service decorator`);
-        return providable.config.tag;
+        return super.getIdentifier(providable);
     }
 }
 exports.ServiceProvider = ServiceProvider;
 (0, addContextData_1.addContextData)(ProviderContext_1.ProviderContext, {
     serviceProvider: new ServiceProvider()
 });
-Module_1.Module.onInit.addListener(({ module }) => {
+Module_1.Module.onInit.addListener(({ module }) => __awaiter(void 0, void 0, void 0, function* () {
     const { serviceProvider } = (0, useContext_1.useContext)(ProviderContext_1.ProviderContext);
     if (!module.data.services)
         return;
     serviceProvider.load(module.data.services);
-});
-Core_1.Core.events.afterStart.addListener(() => __awaiter(void 0, void 0, void 0, function* () {
+}));
+Core_1.Core.events.beforeStart.addListener(() => __awaiter(void 0, void 0, void 0, function* () {
     const { serviceProvider } = (0, useContext_1.useContext)(ProviderContext_1.ProviderContext);
     yield serviceProvider.init();
 }));

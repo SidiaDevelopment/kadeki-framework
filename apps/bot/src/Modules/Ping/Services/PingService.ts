@@ -1,13 +1,14 @@
-import "../Config/PingConfig";
-
-import {ConfigContext, service, Service, useContext} from "@kadeki/core";
+import {LoggingContext, service, Service, useContext} from "@kadeki/core";
+import {ConfigContext} from "@kadeki/config";
 
 @service({
     tag: "ping"
 })
 export class PingService extends Service {
     async init(): Promise<void> {
-        const {greeting, ping} = useContext(ConfigContext);
-        console.log(`Pingservice: ${greeting} ${ping}`);
+        const {ping} = useContext(ConfigContext);
+        const {logger} = useContext(LoggingContext);
+
+        logger.debug(`Pingservice [Init]: ${ping.greeting}`);
     }
 }

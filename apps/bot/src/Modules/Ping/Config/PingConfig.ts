@@ -1,8 +1,9 @@
-import {Config, defaultConfig} from "@kadeki/core";
+import {Config, defaultConfig} from "@kadeki/config";
 
 interface IPingConfig {
-    greeting: string;
-    ping: string;
+    ping: {
+        greeting: string;
+    }
 }
 
 declare module "@kadeki/core/context" {
@@ -11,9 +12,10 @@ declare module "@kadeki/core/context" {
 
 
 @defaultConfig
-class PingConfig extends Config<IPingConfig> {
+export class PingConfig extends Config<IPingConfig> {
     data: IPingConfig = {
-        greeting: "Hello!",
-        ping: "Ping!"
+        ping: {
+            greeting: "Hello!"
+        },
     }
 }

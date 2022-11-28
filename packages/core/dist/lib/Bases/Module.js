@@ -15,7 +15,7 @@ const EventListener_1 = require("./EventListener");
 class Module extends Providable_1.Providable {
     init() {
         return __awaiter(this, void 0, void 0, function* () {
-            Module.onInit.emit({ module: this });
+            yield Module.onInit.emit({ module: this });
         });
     }
 }
