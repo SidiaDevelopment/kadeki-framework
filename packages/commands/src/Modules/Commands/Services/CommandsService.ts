@@ -13,18 +13,27 @@ export class CommandsService extends Service {
         this.discordApiService.subscribe("interactionCreate", this.onInteraction);
     }
 
-    private onInteraction = (interaction: Interaction): void => {
+    private onInteraction = async (interaction: Interaction): Promise<void> => {
         if (!interaction.isChatInputCommand())
             return;
 
         if (interaction.user.bot)
             return;
 
+        let group = "";
+        let commandName = interaction.commandName;
+        const subCommandName = interaction.options.getSubcommand(false);
+
+        if (subCommandName) {
+            group = commandName;
+            commandName = subCommandName
+        }
+
         const {commandProvider} = useContext(ProviderContext);
-        const command = commandProvider.get(interaction.commandName);
+        const command = commandProvider.getByPredicate(e =>  commandName == e.config.tag && (!subCommandName || group == e.config.group));
         if (!command)
             return;
 
-        command.handle(interaction);
+        await command.execute(interaction);
     }
 }
