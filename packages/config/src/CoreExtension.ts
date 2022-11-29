@@ -8,6 +8,6 @@ declare module "@kadeki/core/app" {
     }
 }
 
-Core.events.onCreate.addListener(({config}) => {
+Core.events.onCreate.addListener(async ({config}) => {
     addContextData(ConfigContext, config);
 })

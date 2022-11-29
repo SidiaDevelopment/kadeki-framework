@@ -80,6 +80,6 @@ export const command = <T extends ICommandData = ICommandData>(config: IDiscordC
 
 declare module "@kadeki/core/module" {
     interface IModuleData {
-        commands?: Ctors<Command>;
+        commands?: Ctors<Command<any>>;
     }
 }

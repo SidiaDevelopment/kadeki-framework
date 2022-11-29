@@ -154,6 +154,7 @@ __metadata:
     "@kadeki/config": "workspace:^"
     "@kadeki/core": "workspace:^"
     "@kadeki/discord": "workspace:^"
+    "@kadeki/localization": "workspace:^"
     discord.js: ^14.6.0
     typescript: ^4.8.4
   languageName: unknown
@@ -198,6 +199,16 @@ __metadata:
     "@typescript-eslint/parser": latest
     eslint: latest
     typescript: ^4.8.4
+  languageName: unknown
+  linkType: soft
+
+"@kadeki/localization@workspace:^, @kadeki/localization@workspace:packages/localization":
+  version: 0.0.0-use.local
+  resolution: "@kadeki/localization@workspace:packages/localization"
+  dependencies:
+    "@kadeki/config": "workspace:^"
+    "@kadeki/core": "workspace:^"
+    deepmerge: ^4.2.2
   languageName: unknown
   linkType: soft
 

@@ -1,7 +1,8 @@
 import {command, Command, ICommandData} from "../../../Bases/Command";
-import {ApplicationCommandOptionType, ChatInputCommandInteraction} from "discord.js";
+import {ApplicationCommandOptionType} from "discord.js";
 import {UpdateCommandsService} from "../Services/UpdateCommandsService";
 import {injectService} from "@kadeki/core";
+import {translate} from "@kadeki/localization";
 
 export interface IUpdateCommandsCommandData extends ICommandData {
     text: string;
@@ -21,7 +22,7 @@ export class UpdateCommandsCommand extends Command<IUpdateCommandsCommandData> {
 
     public async handle(data: IUpdateCommandsCommandData): Promise<void> {
         const {interaction} = data;
-        await interaction.reply("Updating commands")
+        await interaction.reply(translate("commands.updateMessage"));
         await this.updateCommandsService.updateCommands();
     }
 }

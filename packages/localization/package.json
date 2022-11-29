@@ -1,6 +1,6 @@
 {
-  "name": "@kadeki/commands",
-  "description": "The Kadeki Discord Framework commands module",
+  "name": "@kadeki/localization",
+  "description": "The Kadeki Discord Framework Discord Module",
   "version": "1.0.0",
   "main": "./dist/lib/index.js",
   "typings": "./dist/types/index.d.ts",
@@ -15,9 +15,6 @@
   "dependencies": {
     "@kadeki/config": "workspace:^",
     "@kadeki/core": "workspace:^",
-    "@kadeki/discord": "workspace:^",
-    "@kadeki/localization": "workspace:^",
-    "discord.js": "^14.6.0",
-    "typescript": "^4.8.4"
+    "deepmerge": "^4.2.2"
   }
 }

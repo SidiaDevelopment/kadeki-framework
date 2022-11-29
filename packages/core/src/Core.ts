@@ -23,7 +23,6 @@ declare module "@kadeki/core/app" {
     export interface ICoreStartupOptions extends ICoreOptions{}
 }
 
-
 type CoreEvents = {
     beforeInit: EventListener<void>;
     afterInit: EventListener<void>;
