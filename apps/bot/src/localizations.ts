@@ -1,8 +1,19 @@
-import {ILocalization} from "@kadeki/localization/translations";
-import {PartialRecursive} from "@kadeki/core";
+import {LocalizationOverride} from "@kadeki/localization";
 
-export const en: PartialRecursive<ILocalization> = {
+export const en: LocalizationOverride = {
+
+}
+
+export const de: LocalizationOverride = {
     commands: {
-        updateMessage: "Testing"
+        updateMessage: "Befehle wurden geupdated",
+        commands: {
+            update: {
+                description: "Lade alle Befehle neu",
+                parameters: {
+                    test: "Dies ist ein Test Parameter"
+                },
+            }
+        }
     }
 }

@@ -13,11 +13,12 @@ import {
     REST,
     Routes,
     SlashCommandBuilder,
-    SlashCommandSubcommandBuilder
+    SlashCommandSubcommandBuilder, SlashCommandSubcommandGroupBuilder
 } from "discord.js";
 import {ConfigContext} from "@kadeki/config";
 import {DiscordService} from "@kadeki/discord";
 import {Command, ICommandData, ICommandParameter} from "../../../Bases/Command";
+import {translate} from "@kadeki/localization";
 
 @service({
     tag: "updateCommands"
@@ -68,7 +69,10 @@ export class UpdateCommandsService extends Service {
     private async buildSlashCommand<T extends SlashCommandBuilder | SlashCommandSubcommandBuilder>(command: Command, builder: T): Promise<void> {
         builder
             .setName(command.config.tag)
-            .setDescription("description");
+            .setDescription(translate(command.config.description))
+            .setDescriptionLocalizations({
+                de: translate(command.config.description, "de")
+            })
 
         const params = command.config.parameters as ICommandParameter<ICommandData>[];
         if (!params) return;
@@ -113,8 +117,11 @@ export class UpdateCommandsService extends Service {
 
         return (option: any) => {
             option.setName(parameter.name);
-            option.setDescription(parameter.name);
+            option.setDescription(translate(parameter.description));
             option.setRequired(!!parameter.required);
+            option.setDescriptionLocalizations({
+                de: translate(parameter.description, "de")
+            })
             if (parameter.autocomplete) {
                 option.setAutocomplete(!!parameter.autocomplete);
             }

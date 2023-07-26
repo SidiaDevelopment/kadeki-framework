@@ -46,8 +46,8 @@ export class Core {
         const core = new Core();
         core.init();
         core.loadLogger(logger);
-        await core.loadModules(modules);
 
+        await core.loadModules(modules);
         await Core.events.onCreate.emit(data);
 
         return core;

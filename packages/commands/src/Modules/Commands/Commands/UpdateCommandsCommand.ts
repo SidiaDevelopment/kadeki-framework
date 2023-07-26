@@ -7,13 +7,15 @@ import {translate} from "@kadeki/localization";
 export interface IUpdateCommandsCommandData extends ICommandData {
     text: string;
 }
+
 @command<IUpdateCommandsCommandData>({
     tag: "update",
+    description: "commands.commands.update.description",
     group: "commands",
     parameters: [{
         name: "text",
-        description: "Test",
-        type: ApplicationCommandOptionType.String
+        description: "commands.commands.update.parameters.test",
+        type: ApplicationCommandOptionType.Boolean
     }]
 })
 export class UpdateCommandsCommand extends Command<IUpdateCommandsCommandData> {

@@ -30,7 +30,7 @@ export class CommandsService extends Service {
         }
 
         const {commandProvider} = useContext(ProviderContext);
-        const command = commandProvider.getByPredicate(e =>  commandName == e.config.tag && (!subCommandName || group == e.config.group));
+        const command = commandProvider.getByPredicate(e => commandName == e.config.tag && (!subCommandName || group == e.config.group));
         if (!command)
             return;
 

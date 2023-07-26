@@ -8,6 +8,7 @@ import {
     User
 } from "discord.js";
 import {CommandParameterHelper} from "../Utils/CommandParameterHelper";
+import {Localization} from "@kadeki/localization";
 
 export interface ICommandData {
     user: User;
@@ -19,7 +20,7 @@ export interface ICommandData {
 export interface ICommandParameter<TData extends ICommandData> {
     name: keyof Omit<TData, keyof ICommandData>;
     type: Exclude<ApplicationCommandOptionType, ApplicationCommandOptionType.Subcommand | ApplicationCommandOptionType.SubcommandGroup>;
-    description: string;
+    description: Localization;
     autocomplete?: (interaction: AutocompleteInteraction) => Promise<void>;
     required?: true;
     catchall?: true;
@@ -30,6 +31,7 @@ export interface ICommandParameter<TData extends ICommandData> {
 export interface IDiscordCommandConfig<T extends ICommandData> extends IProvidableConfig {
     tag: string;
     group?: string;
+    description: Localization,
     parameters?: ICommandParameter<T>[]
 }
 
@@ -74,6 +76,7 @@ export const command = <T extends ICommandData = ICommandData>(config: IDiscordC
         priority: InitPriority.Normal,
         tag: "",
         group: "",
+        description: "commands.commands.update.description",
         parameters: [],
     })(config);
 }
